@@ -4,6 +4,7 @@ package dk.easv.cvrlookupapp.gui;
 import dk.easv.cvrlookupapp.be.Cvr;
 
 // Java imports
+import dk.easv.cvrlookupapp.gui.utils.AlertHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -14,44 +15,29 @@ import java.util.Arrays;
 public class MainViewController {
 
     MainViewModel model = new MainViewModel();
-    @FXML
-    private Label lblCompanyName;
-    @FXML
-    private TextField txtfieldCvrNum;
-    @FXML
-    private Label lblStatus;
-    @FXML
-    private Label lblCVR;
-    @FXML
-    private Label lblAddress;
-    @FXML
-    private Label lblFounded;
-    @FXML
-    private Label lblPhoneNum;
-    @FXML
-    private Label lblEmail;
-    @FXML
-    private Label lblFax;
-    @FXML
-    private Label lblProtected;
-    @FXML
-    private Label lblCompanyType;
-    @FXML
-    private Label lblIndustryCode;
-    @FXML
-    private Label lblStartDate;
-    @FXML
-    private Label lblEndDate;
-    @FXML
-    private Label lblOwners;
-    @FXML
-    private Label lblEmployees;
+
+    @FXML private Label lblCompanyName;
+    @FXML private TextField txtfieldCvrNum;
+    @FXML private Label lblStatus;
+    @FXML private Label lblCVR;
+    @FXML private Label lblAddress;
+    @FXML private Label lblFounded;
+    @FXML private Label lblPhoneNum;
+    @FXML private Label lblEmail;
+    @FXML private Label lblFax;
+    @FXML private Label lblProtected;
+    @FXML private Label lblCompanyType;
+    @FXML private Label lblIndustryCode;
+    @FXML private Label lblStartDate;
+    @FXML private Label lblEndDate;
+    @FXML private Label lblOwners;
+    @FXML private Label lblEmployees;
 
     @FXML
     private void handleSearch(ActionEvent actionEvent) {
 
         if (txtfieldCvrNum.getText().isBlank())
-            return; // Display error to user
+            return;
 
         try {
             Cvr company = model.getCvrByNumber(txtfieldCvrNum.getText());
@@ -79,7 +65,7 @@ public class MainViewController {
             lblEmployees.setText("Antal ansatte: " + company.getEmployees());
 
         } catch (Exception e) {
-            throw new RuntimeException(e+"Failed to search for cvr number");
+            AlertHelper.showError("Error", "Unable to search this CVR number." + e.getMessage());
         }
 
     }
