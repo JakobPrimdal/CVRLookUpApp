@@ -31,9 +31,9 @@ Usage
 Example CVR Numbers
 For testing purposes, you can use these real Danish companies:
 
-10150817 - Erhvervsstyrelsen
-36213728 - Ørsted A/S
-54562519 - LEGO A/S
+* 10150817 - Erhvervsstyrelsen
+* 36213728 - Ørsted A/S
+* 54562519 - LEGO A/S
 
 Project Structure
 * The project utilizes a three-layered architecture, allowing it to keep a high level of adaptability for potential future features and improvements.
