@@ -36,42 +36,7 @@ For testing purposes, you can use these real Danish companies:
 54562519 - LEGO A/S
 
 Project Structure
-CVRLookUpApp/
-├── .idea/                      
-├── .mvn/                       
-├── config/
-│   ├── API.key                 # Your API key (create this - not tracked by git)
-│   └── API.key.example         # Example template for API key file
-├── src/
-│   └── main/
-│       ├── java/
-│       │   └── dk.easv.cvrlookupapp/
-│       │       ├── be/
-│       │       │   └── Cvr.java           # Business Entity - CVR data model
-│       │       ├── bll/
-│       │       │   └── CvrManager.java    # Business Logic Layer
-│       │       ├── dal/
-│       │       │   ├── CvrDAO.java        # Data Access Layer implementation
-│       │       │   └── ICvrDAO.java       # DAO interface
-│       │       ├── gui/
-│       │       │   └── utils/
-│       │       │       ├── AlertHelper.java
-│       │       │       ├── MainViewController.java
-│       │       │       └── MainViewModel.java
-│       │       └── Launcher.java                    # Application entry point
-│       └── resources/
-│           ├── css/
-│           │   └── MainViewCSS.css
-│           ├── images/
-│           │   ├── Calender.png
-│           │   ├── CVR.APP.Logo1.png
-│           │   ├── CVR.APP.Logo2.png
-│           │   └── MapPin.png
-│           └── views/
-│               └── MainView.fxml
-├── .gitignore
-├── pom.xml
-└── README.md
+*The project utilizes a three-layered architecture, allowing it to keep a high level of adaptability for potential future features and improvements.
 
 All dependencies are managed through Maven and specified in pom.xml.
 
