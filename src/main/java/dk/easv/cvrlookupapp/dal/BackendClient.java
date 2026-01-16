@@ -40,18 +40,6 @@ public class BackendClient implements IBackendClient {
 
 
     public Cvr getCvrByNumber(String cvrNumber) throws Exception {
-        if (cvrNumber == null || cvrNumber.trim().isEmpty()) {
-            throw new Exception("CVR number cannot be null or empty");
-        }
-
-        String trimmedCvr = cvrNumber.trim();
-        if (!trimmedCvr.matches("\\d+")) {
-            throw new Exception("CVR number must contain only digits");
-        }
-        if (trimmedCvr.length() != 8) {
-            throw new Exception("CVR number must be exactly 8 digits long");
-        }
-
         try {
             String url = BASE_URL + cvrNumber.trim();
 

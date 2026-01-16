@@ -51,8 +51,29 @@ public class MainViewController {
         if (txtfieldCvrNum.getText().isBlank())
             return;
 
+        String cvrNumber = txtfieldCvrNum.getText();
+
+        if (cvrNumber == null || cvrNumber.trim().isEmpty()) {
+            AlertHelper.showError("Error", "CVR number cannot be null or empty.");
+            txtfieldCvrNum.clear();
+            return;
+        }
+
+        String trimmedCvr = cvrNumber.trim();
+        if (!trimmedCvr.matches("\\d+")) {
+            AlertHelper.showError("Error", "CVR number must contain only digits.");
+            txtfieldCvrNum.clear();
+            return;
+        }
+        if (trimmedCvr.length() != 8) {
+            AlertHelper.showError("Error", "CVR number must be exactly 8 digits long.");
+            txtfieldCvrNum.clear();
+            return;
+        }
+
+
         try {
-            Cvr company = model.getCvrByNumber(txtfieldCvrNum.getText());
+            Cvr company = model.getCvrByNumber(cvrNumber);
 
             lblCompanyName.setText(company.getName());
             lblStatus.setText(company.getStatus());
@@ -77,7 +98,7 @@ public class MainViewController {
             lblEmployees.setText("Antal ansatte: " + company.getEmployees());
 
         } catch (Exception e) {
-            AlertHelper.showError("Error", "Unable to search this CVR number." + e.getMessage());
+            AlertHelper.showError("Error", "Unable to search this CVR number. " + e.getMessage());
         }
     }
 }
