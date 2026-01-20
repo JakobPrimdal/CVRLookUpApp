@@ -11,13 +11,14 @@ Features
 
 Architecture
 
-* The application uses a three-layered architecture with a dedicated backend service:
+The application is part of a frontend–backend architecture:
 
-* Frontend: JavaFX desktop application providing the user interface
-* Backend: Separate service that handles API communication with the CVR registry
-* Data Layer: Integration with the official Danish CVR API
+This architecture ensures separation of concerns and allows for high adaptability for potential future features and improvements.
 
-* This architecture ensures separation of concerns and allows for high adaptability for potential future features and improvements.
+* JavaFX Frontend
+* Spring Boot Backend (CVRLookUpApp-Backend)
+* Database Cache + External CVR API (virkdata.dk)
+
 
 Prerequisites
 
@@ -31,6 +32,7 @@ Setup
 Backend Configuration
 
 * Ensure your backend service is running and properly configured with CVR API credentials.
+* Link to Backend repo: https://github.com/JakobPrimdal/CVRLookUpApp-Backend
 
 Running the Application
 
